@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
       <% @gists.each do |gist| %>
-        <h2><%= gist.name %></h2>
+        <h2><%= link_to gist.name, gist_path(gist) %></h2>
         <p><%= gist.content %></p>
       <% end %>
     </div>

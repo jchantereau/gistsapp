@@ -5,6 +5,8 @@
     <div class="col-xs-8 col-xs-offset-2">
       <h3><em><%= @gist.description %></em></h3>
       <p><%= @gist.content %></p>
+      <%= link_to "Edit", edit_gist_path(@gist) %>
+      <%= link_to "Delete", @gist, method: :delete %>
     </div>
   </div>
 </div>

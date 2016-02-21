@@ -4,13 +4,16 @@ class GistsController < ApplicationController
 
   def index
     @gists = Gist.all
+    unless params[:search].blank?
+      search = params[:search]
+      @gists = Gist.where("name LIKE ?", "%#{params[:search]}%")
+    end
   end
 
   def show
   end
 
   def new
-    @categories = Category.all
     @gist = Gist.new
   end
 
@@ -25,7 +28,6 @@ class GistsController < ApplicationController
   end
 
   def edit
-    @categories = Category.all
   end
 
   def update

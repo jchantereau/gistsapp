@@ -1,10 +1,5 @@
 <h1 class="text-center"> Edit <%= @gist.name %> </h1>
 
-<%= simple_form_for(@gist) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :content %>
-  <%= f.button :submit %>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to "< back", gist_path(@gist) %>

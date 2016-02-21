@@ -36,6 +36,7 @@ class GistsController < ApplicationController
 
   def destroy
     @gist.destroy
+    redirect_to root_path
   end
 
   private

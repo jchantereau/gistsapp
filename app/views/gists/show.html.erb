@@ -7,6 +7,8 @@
       <p><%= @gist.content %></p>
       <%= link_to "Edit", edit_gist_path(@gist) %>
       <%= link_to "Delete", @gist, method: :delete %>
+      <br>
+      <%= link_to "< back", root_path %>
     </div>
   </div>
 </div>

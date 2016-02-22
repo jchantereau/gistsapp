@@ -7,6 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Gist.destroy_all
+Category.destroy_all
+
+categories = %w(ruby style info other)
+categories.each { |category| Category.create(name: category) }
 
 Gist.create(
   name: "preprend.md",
@@ -48,7 +52,7 @@ Gist.create(
           x = Foo.new
           p x.my_method
           > 'inside module'",
-  category_id: 1
+  category: Category.first,
 )
 
 Gist.create(
@@ -74,7 +78,7 @@ Gist.create(
             'theme': 'Dark-Material.sublime-theme',
             'translate_tabs_to_spaces': true,
             'trim_trailing_white_space_on_save': true",
-  category_id: 2
+  category: Category.first,
 )
 
 Gist.create(
@@ -97,5 +101,6 @@ Gist.create(
             3) Delete installed packages as dependencies which have been unused
 
             sudo apt-get autoremove",
-  category_id: 3
+  category: Category.last,
+
 )

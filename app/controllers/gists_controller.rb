@@ -4,9 +4,10 @@ class GistsController < ApplicationController
 
   def index
     @gists = Gist.all
-    unless params[:search].blank?
-      search = params[:search]
-      @gists = Gist.where("name LIKE ?", "%#{params[:search]}%")
+    if params[:search]
+      @gists = Gist.search(params[:search]).order("created_at DESC")
+    else
+      @gists = Gist.all.order('created_at DESC')
     end
   end
 
